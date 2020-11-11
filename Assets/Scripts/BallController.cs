@@ -29,6 +29,8 @@ public class BallController : MonoBehaviour
 
 		rb.bodyType = RigidbodyType2D.Dynamic;
 		rb.velocity = -dragDistance.normalized * speed * dragDistance.magnitude / dragRange;
+
+		LevelManager.instance.AddAttempt();
 	}
 
 	private void OnMouseDrag()

@@ -16,8 +16,15 @@ public class EnemyController : MonoBehaviour
 	void OnCollisionEnter2D(Collision2D col)
 	{
 		if (col.relativeVelocity.magnitude > currentHp)
-			Destroy(gameObject);
+			KillEnemy();
 		else
 			currentHp -= col.relativeVelocity.magnitude;
+	}
+
+	private void KillEnemy()
+	{
+		LevelManager.instance.CheckGame();
+
+		Destroy(gameObject);
 	}
 }
