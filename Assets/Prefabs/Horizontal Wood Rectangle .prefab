@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1322495518485578512}
   - component: {fileID: 1322495518485578519}
   - component: {fileID: 1322495518485578515}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: 'Horizontal Wood Rectangle '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
