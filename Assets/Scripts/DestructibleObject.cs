@@ -39,4 +39,12 @@ public class DestructibleObject : MonoBehaviour
 			}
 		}
 	}
+
+	public void TakeDamage(float damage)
+	{
+		resistance -= damage;
+
+		if (resistance <= 0)
+			Destroy(gameObject);
+	}
 }

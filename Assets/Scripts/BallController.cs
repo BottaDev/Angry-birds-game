@@ -7,14 +7,14 @@ using UnityEngine;
 public class BallController : MonoBehaviour
 {
 	public Transform pivot;	
-	public float dragRange = 1f;
-	public float speed = 15f;
+	protected float dragRange = 1f;
+	protected float speed = 15f;
 
-	private bool canDrag = true;
+	protected bool canDrag = true;
 	private Vector3 dragDistance;
-	private Rigidbody2D rb;
+	protected Rigidbody2D rb;
 
-	private void Start()
+	public virtual void Start()
 	{
 		rb = GetComponent<Rigidbody2D>();
 		rb.bodyType = RigidbodyType2D.Kinematic;
