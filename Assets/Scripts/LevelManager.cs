@@ -9,6 +9,7 @@ public class LevelManager : MonoBehaviour
 
     public float timeToLose = 10f;
     public GameObject[] balls;
+    public GameObject pivotPoint;
 
     [Header("UI Objects")]
     public GameObject winText;
@@ -17,7 +18,7 @@ public class LevelManager : MonoBehaviour
 
     private int totalEnemies;
     private int enemiesCount = 0;
-    private int playerAttempts;
+    private int playerAttempts = 0;
     private bool winGame = false;
 
     private void Awake()
@@ -31,6 +32,8 @@ public class LevelManager : MonoBehaviour
     private void Start()
     {
         totalEnemies = GameObject.FindGameObjectsWithTag("Enemy").Length;
+
+        Instantiate(balls[0], pivotPoint.transform.position, Quaternion.identity);
     }
 
     public void CheckGame()
@@ -71,5 +74,14 @@ public class LevelManager : MonoBehaviour
 
         if (playerAttempts == balls.Length)
             StartCoroutine(StartLoseCountDown());
+        else
+            StartCoroutine(SpawnBall(2f));
+    }
+
+    public IEnumerator SpawnBall(float time)
+    {
+        yield return new WaitForSeconds(time);
+
+        Instantiate(balls[playerAttempts], pivotPoint.transform.position, Quaternion.identity);
     }
 }

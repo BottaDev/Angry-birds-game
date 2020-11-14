@@ -6,7 +6,7 @@ using UnityEngine;
 [RequireComponent(typeof(Collider2D))]
 public class BallController : MonoBehaviour
 {
-	public Transform pivot;	
+	protected Transform pivot;	
 	protected float dragRange = 1f;
 	protected float speed = 15f;
 
@@ -18,6 +18,8 @@ public class BallController : MonoBehaviour
 	{
 		rb = GetComponent<Rigidbody2D>();
 		rb.bodyType = RigidbodyType2D.Kinematic;
+
+		pivot = GameObject.Find("Pivot Point").GetComponent<Transform>();
 	}
 
 	private void OnMouseUp()
