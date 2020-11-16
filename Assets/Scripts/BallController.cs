@@ -22,6 +22,12 @@ public class BallController : MonoBehaviour
 		pivot = GameObject.Find("Pivot Point").GetComponent<Transform>();
 	}
 
+	public virtual void Update()
+    {
+		if (!canDrag)
+			Destroy(gameObject, 3);
+    }
+
 	private void OnMouseUp()
 	{
 		if (!canDrag)

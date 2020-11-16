@@ -11,7 +11,7 @@ public class ExplodeEnemy : BallController
         pivot = GameObject.Find("Pivot Point").GetComponent<Transform>();
     }
 
-    private void Update()
+    public override void Update()
     {
         if (!canDrag && Input.GetKey(KeyCode.Space))
             Explode();
