@@ -27,4 +27,12 @@ public class EnemyController : MonoBehaviour
 
 		Destroy(gameObject);
 	}
+
+	public void TakeDamage(float damage)
+	{
+		baseHp -= damage;
+
+		if (baseHp <= 0)
+			Destroy(gameObject);
+	}
 }

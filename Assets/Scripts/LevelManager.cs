@@ -15,6 +15,7 @@ public class LevelManager : MonoBehaviour
     public GameObject winText;
     public GameObject loseText;
     public GameObject resetButton;
+    public GameObject instructionsText;
 
     private int totalEnemies;
     private int enemiesCount = 0;
@@ -33,6 +34,8 @@ public class LevelManager : MonoBehaviour
     {
         totalEnemies = GameObject.FindGameObjectsWithTag("Enemy").Length;
 
+        instructionsText.SetActive(true);
+
         Instantiate(balls[0], pivotPoint.transform.position, Quaternion.identity);
     }
 
@@ -48,6 +51,8 @@ public class LevelManager : MonoBehaviour
     {
         winGame = true;
 
+        instructionsText.SetActive(false);
+
         winText.SetActive(true);
 
         resetButton.SetActive(true);
@@ -55,6 +60,8 @@ public class LevelManager : MonoBehaviour
 
     private void LoseGame()
     {
+        instructionsText.SetActive(false);
+
         loseText.SetActive(true);
 
         resetButton.SetActive(true);
